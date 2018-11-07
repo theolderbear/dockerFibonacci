@@ -1,5 +1,5 @@
 import React from 'react';
-import {link} from 'react-router-dome';
+import { Link } from 'react-router-dom';
 
 export default () => {
     return (
