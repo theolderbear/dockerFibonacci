@@ -30,7 +30,7 @@ class Fib extends Component {
         await axios.post('/api/values', {index: this.state.index});
 
         this.setState({index: ''});
-    }
+    };
 
     renderSeenIndexes() {
         return this.state.seeIndexes.map(({number}) => number).join(', ');
@@ -52,7 +52,7 @@ class Fib extends Component {
     render() {
         return (
           <div>
-            <form onSubmit={this.handleSubmit()}>
+            <form onSubmit={this.handleSubmit}>
                 <label>Enter your index</label>
             <input
                 value = {this.state.index}
