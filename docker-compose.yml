@@ -26,9 +26,6 @@ services:
     volumes:
       - /app/node_modules
       - ./client:/app
-    environment:
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
   worker:
     build:
       dockerfile: Dockerfile.dev
@@ -36,6 +33,9 @@ services:
     volumes:
       - /app/node_modules
       - ./worker:/app
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
   ngnix:
     restart: always
     build:
