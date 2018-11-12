@@ -1,0 +1,23 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t theolderbear/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run theolderbear/react-test npm test -- --coverage
+
+
+after_success:
+  - docker build -t theolderbear/fib-client ./client
+  - docker build -t theolderbear/fib-worker ./worker
+  - docker build -t theolderbear/fib-server ./server
+  - docker build -t theolderbear/fib-nginx  ./nginx
+
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+  - docker push theolderbear/fib-client
+    - docker push theolderbear/fib-worker
+    - docker push theolderbear/fib-server
+    - docker push theolderbear/fib-nginx
