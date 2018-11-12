@@ -21,3 +21,16 @@ after_success:
   - docker push theolderbear/fib-server
   - docker push theolderbear/fib-nginx
   - docker push theolderbear/fib-client
+
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-central-1"
+  app: "fibonacci-docker"
+  env: "FibonacciDocker-env"
+  bucket_name: "elasticbeanstalk-eu-central-1-374825790429"
+  bucket_path: "docker-fib"
+  on:
+    branch: master
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
