@@ -10,7 +10,7 @@ script:
 
 
 after_success:
-  - docker build -t theolderbear/fib-client ./client
+  - docker build -t theolderbear/fib-react ./client
   - docker build -t theolderbear/fib-worker ./worker
   - docker build -t theolderbear/fib-server ./server
   - docker build -t theolderbear/fib-nginx  ./nginx
@@ -20,4 +20,4 @@ after_success:
   - docker push theolderbear/fib-worker
   - docker push theolderbear/fib-server
   - docker push theolderbear/fib-nginx
-  - docker push theolderbear/fib-client
+  - docker push theolderbear/fib-react
