@@ -5,24 +5,28 @@
       "name": "client",
       "image": "theolderbear/fib-client",
       "hostname": "client",
+      "memory": 128,
       "essential": false
     },
     {
       "name": "worker",
       "image": "theolderbear/fib-worker",
       "hostname": "worker",
+      "memory": 128,
       "essential": false
     },
     {
       "name": "server",
       "image": "theolderbear/fib-server",
       "hostname": "api",
+      "memory": 128,
       "essential": false
     },
     {
       "name": "nginx",
       "image": "theolderbear/fib-nginx",
       "essential": true,
+      "memory": 128,
       "portMappings": [
         {
           "hostPort": 80,
