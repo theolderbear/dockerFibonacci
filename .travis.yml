@@ -18,6 +18,6 @@ after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   - docker push theolderbear/fib-client
-    - docker push theolderbear/fib-worker
-    - docker push theolderbear/fib-server
-    - docker push theolderbear/fib-nginx
+  - docker push theolderbear/fib-worker
+  - docker push theolderbear/fib-server
+  - docker push theolderbear/fib-nginx
